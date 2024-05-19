@@ -2,10 +2,11 @@ import Boton from './Components/Boton.jsx';
 import ContenedorBotones from './Components/ContenedorBotones.jsx';
 import Context from './Components/Context.jsx';
 import Pantalla from './Components/Pantalla.jsx';
+import CalcuProvider from './Context/CalcuContext.jsx';
 
 const App = () => {
     const valboton = [
-        ['C', '+-', '%', '/'],
+        ['C', '-+', '%', '/'],
         [7, 8, 9, 'x'],
         [4, 5, 6, '-'],
         [1, 2, 3, '+'],
@@ -13,7 +14,7 @@ const App = () => {
     ];
 
     return (
-        <div>
+        <CalcuProvider>
             <Context>
                 <Pantalla/>
                 <ContenedorBotones>
@@ -27,7 +28,7 @@ const App = () => {
                     )}
                 </ContenedorBotones>
             </Context>
-        </div>
+        </CalcuProvider>
     );
 };
 

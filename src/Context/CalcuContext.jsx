@@ -1,19 +1,22 @@
 import { createContext, useState } from "react"
 
 export const CalcuContext = createContext()
-const CalcuContext = ({children}) => {
+const CalcuProvider = ({children}) => {
     const [calcu, setCalcu] = useState({
         signo: '',
         numero: 0,
         resultado: 0
     })
 
+    const provider = {
+        calcu, setCalcu
+    }
 
   return (
-    <CalcuContext.Provider>
+    <CalcuContext.Provider value={provider}>
         {children}
     </CalcuContext.Provider>
   )
 }
 
-export default CalcuContext
+export default CalcuProvider
