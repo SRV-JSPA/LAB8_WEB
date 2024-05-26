@@ -58,28 +58,38 @@ const Boton = ({valor}) => {
   }
 
   const igual = () => {
-    if(calcu.resultado && calcu.numero){
+    if (calcu.resultado && calcu.numero) {
       const math = (a, b, signo) => {
-        const resultado = {
+        const operaciones = {
           '+': (a, b) => a + b,
           '-': (a, b) => a - b,
           'x': (a, b) => a * b,
           '/': (a, b) => a / b
         }
-        if(resultado[signo](a, b) < 0 || resultado[signo](a, b) > 999999999) {
-          return 'Error'
+        const resultado = operaciones[signo](a, b);
+        if (resultado < 0 || resultado > 999999999) {
+          return 'Error';
         } else {
-          return resultado[signo](a, b);
+          return resultado.toString(); 
         }
       }
-
+  
+      let resultado = math(calcu.resultado, calcu.numero, calcu.signo);
+  
+      
+      if (resultado !== 'Error' && resultado.length > 9) {
+        resultado = resultado.substring(0, 9);
+      }
+  
       setCalcu({
-        resultado: math(calcu.resultado, calcu.numero, calcu.signo),
+        resultado: resultado,
         signo: '',
         numero: 0
-      })
-    }   
+      });
+    }
   }
+  
+  
 
   const porcentaje = () => {
     setCalcu({
