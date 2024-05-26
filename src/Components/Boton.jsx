@@ -89,8 +89,6 @@ const Boton = ({valor}) => {
     }
   }
   
-  
-
   const porcentaje = () => {
     setCalcu({
       numero: (calcu.numero / 100),
