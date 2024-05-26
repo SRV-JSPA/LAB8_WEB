@@ -7,7 +7,7 @@ const Pantalla = () => {
   const {calcu} = useContext(CalcuContext)
   const numeroValido = calcu.numero.toString().slice(0, 9)
   return (
-    <Textfit className="pantalla" >{calcu.numero ? numeroValido : calcu.resultado }</Textfit>
+    <div className="pantalla" >{calcu.numero ? numeroValido : calcu.resultado }</div>
   )
 }
 

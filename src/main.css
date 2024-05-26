@@ -18,6 +18,7 @@ body {
 .pantalla {
     height: 4rem;
     margin-bottom: 4rem;
+    font-size: 3rem;
 }
 
 .context {
