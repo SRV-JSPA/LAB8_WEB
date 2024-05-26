@@ -39,12 +39,13 @@ const Boton = ({valor}) => {
       valorNumero = '0'
     } else {
       valorNumero = Number(calcu.numero + numero)
+      if(valorNumero.toString().length <= 9){
+        setCalcu({
+          ...calcu,
+          numero: valorNumero
+        })
+      }
     }
-
-    setCalcu({
-      ...calcu,
-      numero: valorNumero
-    })
   }
 
   const operacion = () => {
