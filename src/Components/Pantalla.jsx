@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { CalcuContext } from "../Context/CalcuContext"
-import { Textfit } from "react-textfit"
 
 
 const Pantalla = () => {
