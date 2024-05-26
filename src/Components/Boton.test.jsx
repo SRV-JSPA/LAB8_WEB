@@ -3,14 +3,14 @@ import { render, fireEvent } from '@testing-library/react';
 import Boton from './Boton';
 import { CalcuContext } from '../Context/CalcuContext';
 
-describe('Boton Component', () => {
+describe('Componente boton', () => {
   let mockSetCalcu;
 
   beforeEach(() => {
     mockSetCalcu = vi.fn(); 
   });
 
-  it('should handle click event correctly', () => {
+  it('deberia de manejar el evento click correctamente', () => {
     const value = {
       calcu: { numero: 5, signo: '', resultado: 0 },
       setCalcu: mockSetCalcu,
