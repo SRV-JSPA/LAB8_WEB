@@ -77,4 +77,27 @@ describe('Componente boton', () => {
       resultado: '15'
     });
   });
+
+  test('debería manejar el evento click y actualizar el estado con una operación', () => {
+    const value = {
+      calcu: { numero: 5, signo: '', resultado: 0 },
+      setCalcu: mockSetCalcu,
+    };
+
+    render(
+      <CalcuContext.Provider value={value}>
+        <Boton valor="+" />
+      </CalcuContext.Provider>
+    );
+
+    const button = screen.getByText('+');
+    fireEvent.click(button);
+
+    expect(mockSetCalcu).toHaveBeenCalledWith({
+      numero: 0,
+      signo: '+',
+      resultado: 5
+    });
+  });
+
 });
