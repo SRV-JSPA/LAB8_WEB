@@ -5,6 +5,7 @@ import { CalcuContext } from '../Context/CalcuContext';
 export default {
   title: 'Pantalla',
   component: Pantalla,
+  tags: ['autodocs']
 };
 
 const Template = (args) => {

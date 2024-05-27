@@ -8,6 +8,7 @@ export default {
   argTypes: {
     valor: { control: 'text' },
   },
+  tags: ['autodocs']
 };
 
 const Template = (args) => {
