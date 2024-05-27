@@ -1,4 +1,4 @@
-import { describe, it, beforeEach, vi, expect } from 'vitest';
+import { describe, it, beforeEach, vi, expect, test } from 'vitest';
 import { render, fireEvent } from '@testing-library/react';
 import Boton from './Boton';
 import { CalcuContext } from '../Context/CalcuContext';
@@ -10,7 +10,7 @@ describe('Componente boton', () => {
     mockSetCalcu = vi.fn(); 
   });
 
-  it('deberia de manejar el evento click correctamente', () => {
+  test('deberia de manejar el evento click correctamente', () => {
     const value = {
       calcu: { numero: 5, signo: '', resultado: 0 },
       setCalcu: mockSetCalcu,
