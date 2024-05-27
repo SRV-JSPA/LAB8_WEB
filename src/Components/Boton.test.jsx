@@ -1,7 +1,8 @@
 import { describe, it, beforeEach, vi, expect, test } from 'vitest';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 import Boton from './Boton';
 import { CalcuContext } from '../Context/CalcuContext';
+import '@testing-library/jest-dom/vitest';
 
 describe('Componente boton', () => {
   let mockSetCalcu;
@@ -30,6 +31,50 @@ describe('Componente boton', () => {
       numero: 55, 
       signo: '',
       resultado: 0
+    });
+  });
+
+  test('debería manejar el evento click y resetear el estado con "C"', () => {
+    const value = {
+      calcu: { numero: 5, signo: '+', resultado: 10 },
+      setCalcu: mockSetCalcu,
+    };
+
+    render(
+      <CalcuContext.Provider value={value}>
+        <Boton valor="C" />
+      </CalcuContext.Provider>
+    );
+
+    const button = screen.getByText('C');
+    fireEvent.click(button);
+
+    expect(mockSetCalcu).toHaveBeenCalledWith({
+      numero: 0,
+      signo: '',
+      resultado: 0
+    });
+  });
+
+  test('debería manejar el evento click y calcular el resultado con "="', () => {
+    const value = {
+      calcu: { numero: 5, signo: '+', resultado: 10 },
+      setCalcu: mockSetCalcu,
+    };
+
+    render(
+      <CalcuContext.Provider value={value}>
+        <Boton valor="=" />
+      </CalcuContext.Provider>
+    );
+
+    const button = screen.getByText('=');
+    fireEvent.click(button);
+
+    expect(mockSetCalcu).toHaveBeenCalledWith({
+      numero: 0,
+      signo: '',
+      resultado: '15'
     });
   });
 });
